@@ -1,0 +1,130 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MY WEBPAGE{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        background: linear-gradient(120deg, #beab19 0%, #c2e9fb 100%);
+        font-family: Arial, sans-serif;
+        color: #333;
+      }
+
+      .nav-bar a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .nav-bar a:hover {
+        text-decoration: underline;
+      }
+
+      .welcome-message {
+        text-align: none;
+        margin-bottom: 30px;
+      }
+
+      .btn-custom {
+        background-color: #a2ff00;
+        color: white;
+        border-radius: 50px;
+        padding: 10px 20px;
+        font-size: 20px;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+      }
+
+      .btn-custom:hover {
+        background-color: #0056b3;
+        color: #fff;
+      }
+
+      .alert {
+        margin-top: 25px;
+      }
+    </style>
+</head>
+<body>
+    <section id="about" class="about">
+        <div class="section-heading text-center">
+            <h2>About Us</h2>
+        </div>
+        <div class="container">
+            <div class="about-content">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="single-about-txt">
+                            <h3>
+                                Kolawole k. Salami (born 2nd Feb 1987) is a Nigerian
+                                entrepreneur who is currently the Country Director of Cristabel Resource & Investment Nig, since 2019.
+                            </h3>
+                            <p>
+                                 Cristabel Resource & Investment Nig is one of the leading logistic companies present in three Africa countries (Nigeria,Kenya and Ethiopia).
+
+focuses on providing complex logistic solutions with the utmost consideration for the environment. In 2019, Cristabel Resource & Investment Nig introduced the “Green 2PL Solutions” logistic product – a product that connects complex logistics (2PL) with minimal environmental impact. In addition to complex logistic solutions Cristabell Resource & Investment Nig. Ltd also provides individual logistic services, namely transport solutions, storage, distribution logistics, outsourcing solutions, FMCG sale and value-added services (VAS).
+
+The key aim of Cristabel Resource & Investment Nig is to establish and maintain  a long-term relationship with our customers. This fact is reflected in the above-mentioned corporate motto: „Our team for your efficiency” always placing an emphasis on efficient and top-ranking logistic services.
+
+The company prepares tailor-made solutions for each customer and their needs. Therefore, among other things, extraordinary attention is paid to innovation and continuous development of technologies and processes.
+                            </p>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="single-about-add-info">
+                                        <h3>phone</h3>
+                                        <p>234-80733-97318</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="single-about-add-info">
+                                        <h3>email</h3>
+                                        <p>godplan2015@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="single-about-add-info">
+                                        <h3>website</h3>
+                                        <p>www.kolawole.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-1 col-sm-5">
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/.about-->
+    <!--about end -->
+
+    <!-- Flash Messages -->
+    <div class="container mt-3">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

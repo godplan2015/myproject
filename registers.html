@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+        font-family: Arial, sans-serif;
+      }
+
+      .auth-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .auth-container h2 {
+        margin-bottom: 30px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .form-group label {
+        font-weight: bold;
+        color: #555;
+        display: block;
+        text-align: left;
+        margin-bottom: 5px;
+      }
+
+      .form-control {
+        border-radius: 30px;
+        padding: 10px 15px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+      }
+
+      .btn-custom {
+        background-color: #008cba;
+        color: white;
+        border-radius: 30px;
+        font-size: 16px;
+        padding: 10px 20px;
+        width: 100%;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-custom:hover {
+        background-color: #007bb5;
+        color: white;
+      }
+
+      .btn-navigation {
+        margin-top: 10px;
+      }
+
+      .flashes {
+        margin-bottom: 20px;
+      }
+
+      .alert {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="auth-container">
+      <h2>Register</h2>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <div class="flashes">
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% endwith %}
+
+      <form method="POST" action="{{ url_for('api_blueprint.register') }}" role="form">
+        <div class="form-group">
+          <label for="username">{{ form.username.label }}</label>
+          {{ form.username(class_="form-control", id="username") }}
+        </div>
+        <div class="form-group">
+          <label for="passwor">{{ form.passwor.label }}</label>
+          {{ form.passwor(class_="form-control", id="passwor") }}
+        </div>
+        <div class="form-group">
+          <label for="confirm">{{ form.confirm.label }}</label>
+          {{ form.confirm(class_="form-control", id="confirm") }}
+        </div>
+        <button type="submit" class="btn btn-custom">Submit</button>
+      </form>
+
+      <div class="btn-navigation">
+        <a href="{{ url_for('api_blueprint.login') }}" class="btn btn-link">Already have an account? Login</a>
+      </div>
+    </div>
+  </body>
+</html>

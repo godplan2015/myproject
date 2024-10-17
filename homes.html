@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        background: linear-gradient(120deg, #eca1fd 0%, #c2e9fb 100%);
+        font-family: Arial, sans-serif;
+        color: #333;
+      }
+
+      .container {
+        margin-top: 50px;
+        max-width: 600px;
+      }
+
+      .nav-bar {
+        background-color: #ff0037;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+      }
+
+      .nav-bar a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .nav-bar a:hover {
+        text-decoration: underline;
+      }
+
+      .welcome-message {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .btn-custom {
+        background-color: #a2ff00;
+        color: white;
+        border-radius: 30px;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+      }
+
+      .btn-custom:hover {
+        background-color: #0056b3;
+        color: #fff;
+      }
+
+      .alert {
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <marquee
+    bgcolor="blue"
+    direction="right"
+    scrollamount="8"
+    behavior="alternate"
+    <nav class="nav-bar">
+      <li class=" smooth-menu"><a href="{{ url_for('api_blueprint.about') }}">About Us</a></li>
+			<li class="smooth-menu"><a href="{{ url_for('api_blueprint.register') }}">Registration</a></li>
+      <li class=" smooth-menu"><a href="{{ url_for('api_blueprint.login') }}">Login</a>
+			<li class="smooth-menu"><a href="{{ url_for('api_blueprint.home') }}">Services</a></li>
+
+      <div class="welcome-message">
+        <h1>   Welcome to Cristabell Resource & Investment Nig.Ltd </h1>
+    </nav>
+  </marquee>
+
+    <div class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <div class="flashes">
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% endwith %}
+      </div>
+    </div>
+  </body>
+  <footer>
+    <p>&copy; 2024 My Website. All Rights Reserved.</p>
+    <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+    </ul>
+</footer>
+</html>
