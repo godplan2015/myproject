@@ -7,6 +7,7 @@
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -20,10 +21,26 @@
       .container {
         margin-top: 50px;
         max-width: 600px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      @keyframes slider{
+        0%{background-image: ("https://cdn.pixabay.com/photo/2019/09/26/20/17/transportation-4506971_640.jpg");}
+        30%{background-image:("https://media.istockphoto.com/id/1437355350/photo/cargo-containes-at-sea-port-global-business.webp?b=1&s=612x612&w=0&k=20&c=y1mZze8J1QucPFvbVTUdgcL4OVysrDlH4aGDUdqp2_w=");}
+        60%{background-image:("https://www.istockphoto.com/en/search/2/image?mediatype=&phrase=logistics&utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&utm_content=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Flogistics%2F&utm_term=logistics");}
+        100%{background-image:("https://cdn.pixabay.com/photo/2021/11/14/12/53/ship-6794508_1280.jpg");}
       }
 
+      img {
+        width: 1500px;
+        height: auto;
+        border-radius: 100px;
+        background-size: 100% 100%;
+        box-shadow: 20px 20px 10px gold;
+        animation: slider 10s linear infinite;
+      }
       .nav-bar {
-        background-color: #ff0037;
+        background-color: #737da4;
         padding: 10px;
         border-radius: 5px;
         margin-bottom: 30px;
@@ -34,6 +51,7 @@
         margin: 0 15px;
         text-decoration: none;
         font-weight: bold;
+        
       }
 
       .nav-bar a:hover {
@@ -55,6 +73,12 @@
         text-decoration: none;
       }
 
+      footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #343a40;
+    color: white;
+}
       .btn-custom:hover {
         background-color: #0056b3;
         color: #fff;
@@ -73,15 +97,48 @@
     behavior="alternate"
     <nav class="nav-bar">
       <li class=" smooth-menu"><a href="{{ url_for('api_blueprint.about') }}">About Us</a></li>
-			<li class="smooth-menu"><a href="{{ url_for('api_blueprint.register') }}">Registration</a></li>
+			<li class="smooth-menu"><a href="{{ url_for('api_blueprint.register') }}">Sign-Up</a></li>
       <li class=" smooth-menu"><a href="{{ url_for('api_blueprint.login') }}">Login</a>
 			<li class="smooth-menu"><a href="{{ url_for('api_blueprint.home') }}">Services</a></li>
-
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
       <div class="welcome-message">
-        <h1>   Welcome to Cristabell Resource & Investment Nig.Ltd </h1>
+        <h1>   Welcome to Cristabel Resource & Investment Nig.Ltd </h1>
     </nav>
   </marquee>
-
+    <nav class="amazing-tabs">
+      <div class="filters-container">
+        <div class="filters-wrapper">
+          <ul class="filter-tabs">
+          </ul>
+          <div class="filter-slider" aria-hidden="true">
+            <div class="filter-slider-rect">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+      <div class="main-tabs-container">
+        <div class="main-tabs-wrapper">
+          <ul class="main-tabs">
+            <li>
+              <button
+                class="round-button"
+                data-translate-value="0"
+                data-color="red"
+              >
+                <span class="avatar">
+                  <img
+                    src="https://cdn.pixabay.com/photo/2019/09/26/20/17/transportation-4506971_640.jpg"
+        src="https://media.istockphoto.com/id/1437355350/photo/cargo-containes-at-sea-port-global-business.webp?b=1&s=612x612&w=0&k=20&c=y1mZze8J1QucPFvbVTUdgcL4OVysrDlH4aGDUdqp2_w="
+        src="https://www.istockphoto.com/en/search/2/image?mediatype=&phrase=logistics&utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&utm_content=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Flogistics%2F&utm_term=logistics"
+        src="https://cdn.pixabay.com/photo/2021/11/14/12/53/ship-6794508_1280.jpg"
+        
+                    alt="user avatar"
+                  />
+                </span>
+              </button>
+            </li>
+    </nav>
+    <script src="index.js"></script>
     <div class="container">
       {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
@@ -101,10 +158,11 @@
     </div>
   </body>
   <footer>
-    <p>&copy; 2024 My Website. All Rights Reserved.</p>
-    <ul>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-    </ul>
+    <p>© 2024 Cristabel Resource & Investment. All Rights Reserved.</p>
+          <h3>phone</h3>
+          <p>234-80733-97318</p>
+        <h3>email</h3>
+        <p>godplan2015@gmail.com</p>
+    </div>
 </footer>
 </html>
