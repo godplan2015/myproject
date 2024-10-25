@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(120deg, #e0f7fa 0%, #b2ebf2 100%);
+        font-family: Arial, sans-serif;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.navbar {
+        background-color: #0073e6;
+      }
+
+      nav.navbar .navbar-brand,
+      nav.navbar .nav-link {
+        color: white !important;
+        font-weight: bold;
+      }
+
+      .nav-link:hover {
+        text-decoration: underline;
+      }
+
+      .welcome-message {
+        background-color: #004085;
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 1.2em;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: bold;
+      }
+
+      .btn-custom {
+        background-color: #0073e6;
+        color: white;
+        border-radius: 30px;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+      }
+
+      .btn-custom:hover {
+        background-color: #005bb5;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #343a40;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Cristabel Resources</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('api_blueprint.about') }}"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('api_blueprint.register') }}"
+                >Sign-Up</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('api_blueprint.login') }}"
+                >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('api_blueprint.home') }}"
+                >Services</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Welcome Message -->
+    <div class="welcome-message">
+      Welcome to Cristabel Resource & Investment Nig. Ltd
+    </div>
+
+    <!-- Carousel Section -->
+    <div class="container">
+      <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://cdn.pixabay.com/photo/2019/09/26/20/17/transportation-4506971_640.jpg"
+              alt="Transportation Image"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://media.istockphoto.com/id/1437355350/photo/cargo-containers-at-sea-port-global-business.webp"
+              alt="Cargo Containers"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://cdn.pixabay.com/photo/2021/11/14/12/53/ship-6794508_1280.jpg"
+              alt="Ship Image"
+            />
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#imageCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#imageCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2024 Cristabel Resource & Investment. All Rights Reserved.</p>
+      <p><strong>Phone:</strong> +234-80733-97318</p>
+      <p><strong>Email:</strong> godplan2015@gmail.com</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
